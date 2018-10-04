@@ -99,9 +99,19 @@ textarea {
 body{
   background-color: #ce8991;
 }
-
-
-
+a{
+  color: black;
+}
+a:hover{
+  color: black;
+  text-decoration: none;
+}
+.listCard{
+  background-color: white;
+}
+.logo{
+  width: 15px;
+}
 
 
 

@@ -16,14 +16,14 @@
   <?php require("header.php"); ?>
   <?php include("post.php"); ?>
 
-  <?php $req = $bdd->prepare('SELECT * FROM lists WHERE id = :idproject');
+  <?php $req = $bdd->prepare('SELECT * FROM tasks WHERE id = :idlists');
   $req->execute(array(
-    'idproject' => $_GET['index']
+    'idlists' => $_GET['index']
   ));
   $req = $req->fetchAll();
   foreach ($req as $key => $value) {?>
   <div class="container">
-    <h1 class="text-center">List:<?php echo $value['name'] ?></h1>
+    <h1 class="text-center">Task:<?php echo $value['name'] ?></h1>
   <?php } ?>
     <div class="card" style="width: 18rem;">
       <form class="" action="index.php" method="post">
