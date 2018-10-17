@@ -1,19 +1,5 @@
-<?php include 'config.php'; ?>
 <?php
-// if (isset($_POST['Delete'])) {
-// $Delete = $_POST['Delete'];
-// $id = $_POST['id'];
-// if(!empty($Delete)){
-//   $reponse = $bdd->prepare('DELETE FROM project WHERE id = :id');
-//   $reponse->execute([
-//     "id" => $id
-//   ]);
-// }
-// // header('Location: index.php');
-// } and isset($_POST['date']) and isset($_POST['description'])
- // and !empty($date) and !empty($description)
- // , date, description
- // , :date, :description
+include 'config.php';
 if (!empty($_POST['name']) and !empty($_POST['date']) and !empty($_POST['description']))
 {
   $name = htmlspecialchars($_POST['name']);
@@ -31,8 +17,4 @@ if (!empty($_POST['name']) and !empty($_POST['date']) and !empty($_POST['descrip
   else {
     echo "erreur : données vides";
   }
-
-// else{
-//    echo "Erreur";
-//   }
 ?>

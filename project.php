@@ -14,7 +14,9 @@
 <body>
   <?php require("header.php"); ?>
 
-  <?php $req = $bdd->prepare('SELECT * FROM project WHERE id = :idproject');
+  <?php
+
+  $req = $bdd->prepare('SELECT * FROM project WHERE id = :idproject');
   $req->execute(array(
     'idproject' => $_GET['index']
   ));
@@ -36,18 +38,20 @@
       <div class="card-body">
        <h3 class="card-title"><?php echo $value['name'] ?></h3>
 
-        <a href="lists.php?index=<?php echo $value['id'] ?>" class="btn btn-success">More details</a><br>
-        <form class="mt-2" action="index.php" method="post">
+       <a href="lists.php?index=<?php echo $value['id'] ?>" class="btn btn-success">More details</a><br>
+        <form class="mt-2" action="delete_project.php?index=<?php echo $value['id']; ?>" method="post">
           <input class="btn btn-danger" type="submit" name="Delete" value="Delete">
         </form>
      </div>
     </div>
 <?php } ?>
-
     </div>
-    <form class="mt-5 col-12 text-center" action="lists.php" method="post">
+    <form class="mt-5 text-center" action="add_project.php?index=<?php echo $value['id']; ?>" method="post">
       <input class="btn btn-success" type="submit" name="Add" value="Add">
     </form>
+    <!-- <form class="mt-2 text-center" action="delete_project.php?index=<?php echo $value['id']; ?>" method="post"> -->
+      <!-- <input class="btn btn-danger" type="submit" name="Delete" value="Delete">
+    </form> -->
 
   </div>
 </body>

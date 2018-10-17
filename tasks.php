@@ -26,14 +26,14 @@
     <h1 class="text-center">Task:<?php echo $value['name'] ?></h1>
   <?php } ?>
     <div class="card" style="width: 18rem;">
-      <form class="" action="index.php" method="post">
+      <form class="" action="add_lists.php<?php echo $value['id']; ?>" method="post">
         <input type="checkbox" name="" value="">
       </form>
     </div>
     <form action="index.php" method="post">
       <input class="mt-5 btn btn-danger" type="submit" name="Delete" value="Delete">
     </form>
-    <form  action="index.php" method="post">
+    <form  action="add_lists.php<?php echo $value['id']; ?>" method="post">
       <input class="mt-2 btn btn-success" type="submit" name="Add" value="Add">
     </form>
   </div>

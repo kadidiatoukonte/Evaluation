@@ -14,7 +14,6 @@
 </head>
 <body>
   <?php require("header.php"); ?>
-  <?php include("post.php"); ?>
 
   <?php $req = $bdd->prepare('SELECT * FROM lists WHERE id = :idproject');
   $req->execute(array(
@@ -23,17 +22,21 @@
   $req = $req->fetchAll();
   foreach ($req as $key => $value) {?>
   <div class="container">
-    <h1 class="text-center">List:<?php echo $value['name'] ?></h1>
+    <h1 class="text-center">List: <?php echo $value['name'] ?></h1>
   <?php } ?>
     <div class="card" style="width: 18rem;">
-      <form class="" action="index.php" method="post">
-        <input type="checkbox" name="" value="">
+      <form class="" action="add_lists.php<?php echo $value['id']; ?>" method="post">
+        <input onclick="myFunction()" type="checkbox" name="" value=""><?php echo $value['name']; ?>
       </form>
+      <form class="" action="add_lists.php<?php echo $value['id']; ?>" method="post">
+        <input type="checkbox" name="" value=""><?php echo $value['name']; ?>
+      </form>
+
     </div>
     <form action="index.php" method="post">
       <input class="mt-5 btn btn-danger" type="submit" name="Delete" value="Delete">
     </form>
-    <form  action="index.php" method="post">
+    <form  action="add_lists.php?index=<?php echo $value['id']; ?>" method="post">
       <input class="mt-2 btn btn-success" type="submit" name="Add" value="Add">
     </form>
   </div>
