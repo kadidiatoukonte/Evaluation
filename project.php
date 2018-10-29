@@ -18,7 +18,7 @@
 
   $req = $bdd->prepare('SELECT * FROM project WHERE id = :idproject');
   $req->execute(array(
-    'idproject' => $_GET['index']
+    'idproject' => $_GET['project']
   ));
   $req = $req->fetchAll();
   foreach ($req as $key => $value) {?>
@@ -30,7 +30,7 @@
     <div class="row col-12 m-0 p-0">
       <?php $request = $bdd->prepare('SELECT * FROM lists WHERE id_project = :idproject');
       $request->execute(array(
-        'idproject' => $_GET['index']
+        'idproject' => $_GET['project']
       ));
       $request = $request->fetchAll();
       foreach ($request as $key => $value) {?>
@@ -38,21 +38,17 @@
       <div class="card-body">
        <h3 class="card-title"><?php echo $value['name'] ?></h3>
 
-       <a href="lists.php?index=<?php echo $value['id'] ?>" class="btn btn-success">More details</a><br>
-        <form class="mt-2" action="delete_project.php?index=<?php echo $value['id']; ?>" method="post">
+       <a href="lists.php?lists=<?php echo $value['id'] ?>&project=<?php echo $_GET['project'] ?>" class="btn btn-success">More details</a><br>
+        <form class="mt-2" action="delete_project.php?lists=<?php echo $value['id']; ?>&project=<?php echo $_GET["project"] ?>" method="post">
           <input class="btn btn-danger" type="submit" name="Delete" value="Delete">
         </form>
      </div>
     </div>
 <?php } ?>
     </div>
-    <form class="mt-5 text-center" action="add_project.php?index=<?php echo $value['id']; ?>" method="post">
+    <form class="mt-5 text-center" action="add_project.php?project=<?php echo $_GET['project']; ?>" method="post">
       <input class="btn btn-success" type="submit" name="Add" value="Add">
     </form>
-    <!-- <form class="mt-2 text-center" action="delete_project.php?index=<?php echo $value['id']; ?>" method="post"> -->
-      <!-- <input class="btn btn-danger" type="submit" name="Delete" value="Delete">
-    </form> -->
-
   </div>
 </body>
 </html>

@@ -24,14 +24,14 @@
   <?php
   foreach ($req as $key => $value) {?>
       <div class="listCard mt-3 border border-dark col-12 col-md-5 mx-auto">
-        <a href="project.php?index=<?php echo $value['id']; ?>">
+        <a href="project.php?project=<?php echo $value['id']; ?>">
           <div class="col-12 p-0 m-0">
             <p class="cardTitle text-center pt-2 blackText"><?php echo $value['name']; ?></p>
             <p class="cardPrice text-center pb-2 mb-0 mt-2 blackText"><?php echo $value['project_date'];?></p>
             <p class="cardPrice text-center pb-2 mb-0 mt-2 blackText"><?php echo $value['description'];?></p>
           </div>
         </a>
-        <form  class="mb-2 text-center" action="delete.php?index=<?php echo $value['id']; ?>" method="post">
+        <form  class="mb-2 text-center" action="delete_index.php?project=<?php echo $value['id']; ?>" method="post">
           <input class="btn btn-danger" type="submit" name="Delete" value="Delete">
         </form>
       </div>

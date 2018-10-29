@@ -1,8 +1,7 @@
 <?php
 require('config.php');
-$takeid = $_GET['index'];
+$takeid = $_GET['lists'];
 $reponse = $bdd->prepare("DELETE FROM lists WHERE id=$takeid");
 $reponse->execute();
-header('location: project.php');
-
+header('Location: project.php?project=' . $_GET["project"] . '');
 ?>

@@ -8,8 +8,8 @@ include 'config.php';
     $reponse = $bdd->prepare("INSERT INTO lists (name, id_project) VALUES (:name, :id_project)");
     $reponse->execute([
         "name" => $name,
-        "id_project" => $_GET['index']
+        "id_project" => $_GET['project']
     ]);
-    header('Location: project.php?index=' . $_GET["index"] . '');
+    header('Location: project.php?project=' . $_GET["project"] . '');
 }
 ?>
